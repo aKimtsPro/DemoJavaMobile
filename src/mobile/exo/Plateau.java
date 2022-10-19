@@ -10,7 +10,10 @@ public class Plateau {
         char[] plateau = { '_', '_', '_', '_', '*' };
         int position = 4;
 
+
         char choix;
+
+        // tant que j'ai pas choisi quitter
         do {
 
             for (int i = 0; i < plateau.length; i++) {
@@ -18,10 +21,12 @@ public class Plateau {
             }
             System.out.println();
 
+            // choisir gauche (g) ou droite (d) ou quitter (q)
             choix = sc.nextLine().charAt(0);
 
             switch ( choix ){
 
+                // - aller à droite si je choisi droite
                 case 'd':
                     if( position == 4 ){
                         plateau[position] = '_';
@@ -34,6 +39,8 @@ public class Plateau {
                     }
                     break;
 
+
+                // - aller à gauche si je choisi gauche
                 case 'g':
                     if( position == 0 ){
                         plateau[position] = '_';
@@ -45,9 +52,11 @@ public class Plateau {
                         plateau[--position] = '*';
                     }
                     break;
+
                 case 'q':
                     System.out.println("Au revoir");
                     break;
+
                 default:
                     System.out.println("Choix invalide");
 
