@@ -60,6 +60,7 @@ public class DemoVariable {
         boolean rsltBool = Boolean.parseBoolean("true");
         int rslt = Integer.parseInt("52");
         double rslt2 = Double.parseDouble("51.1");
+
         System.out.println(rslt);
 
     }
