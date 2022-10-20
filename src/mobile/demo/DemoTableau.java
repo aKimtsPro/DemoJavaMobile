@@ -15,6 +15,10 @@ public class DemoTableau {
         tabDeInt[0] = 1;
         tabDeInt[1] = 2;
 
+        for (int i : tabDeInt) {
+            System.out.println(i);
+        }
+
         // Seulement lors d'une déclaration/initialisation
         int[] tabEntier = {1, 2};
         // Pour faire la même chose hors ce contexte
