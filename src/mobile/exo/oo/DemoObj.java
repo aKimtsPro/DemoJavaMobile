@@ -20,6 +20,15 @@ public class DemoObj {
         pers.salutation( pers );
 
         System.out.println( pers.calculIMC() );
+
+
+        Competition competition = new Competition();
+
+        Sportif s = new Sportif();
+
+        competition.inscrire( s );
+
+        competition.getInscrits().clear();
     }
 
 }

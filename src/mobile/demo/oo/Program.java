@@ -1,8 +1,6 @@
 package mobile.demo.oo;
 
-import mobile.exo.oo.Personne;
-
-public class DemoClasse {
+public class Program {
 
     public static void main(String[] args) {
 
