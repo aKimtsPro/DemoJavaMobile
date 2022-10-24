@@ -17,6 +17,9 @@ public class DemoIteratives {
 
         // do ... while - pareil mais 1 iter gratuite
 
+        // declaration
+        // instanciation
+        // initialisation
         Scanner scanner = new Scanner( System.in );
         int aAjouter;
         do {

@@ -1,6 +1,6 @@
 package mobile.demo;
 
-import java.sql.Connection;
+import mobile.exo.oo.Personne;
 
 public class DemoVariable {
 
@@ -35,15 +35,15 @@ public class DemoVariable {
         System.out.println( chaine == chaine2 ); // true
         System.out.println( chaine == chaine3 ); // false
 
-        Personne p = new Personne();
-        p.nom = "luc";
-        Personne p2 = new Personne();
-        p2.nom = "luc";
+//        Personne p = new Personne();
+//        p.nom = "luc";
+//        Personne p2 = new Personne();
+//        p2.nom = "luc";
 
         // Les constantes
         final int TAUX_TVA = 21;
         final Personne PERS = new Personne();
-        PERS.nom = "autre chose";
+//        PERS.nom = "autre chose";
 
         // Les conversions
 
