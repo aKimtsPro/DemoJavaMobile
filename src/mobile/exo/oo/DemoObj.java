@@ -4,19 +4,14 @@ public class DemoObj {
 
     public static void main(String[] args) {
 
-        Personne pers = new Personne();
-        pers.nom = "Dupont";
-        pers.prenom = "Luc";
+        Personne pers = new Personne("Dupont","Luc");
         pers.dateNaiss = "21/09/1952";
         pers.taille = 185;
         pers.poid = 85;
 
-        Personne pers2 = new Personne();
-        pers2.nom = "Dubois";
-        pers2.prenom = "Marie";
-        pers2.dateNaiss = "21/09/1978";
-        pers2.taille = 185;
-        pers2.poid = 85;
+
+        Personne pers2 = new Personne("Dubois","Marie","21/09/1978",185,85);
+        Personne pers3 = new Personne();
 
         pers2.presentation();
         pers.salutation( pers2 );

@@ -2,10 +2,23 @@ package mobile.demo.oo;
 
 public class Voiture {
 
-    String marque;
-    String modele;
-    int kmParcouru;
-    boolean enBonEtat = true;
+    private String marque;
+    private String modele;
+    private int kmParcouru;
+    private boolean enBonEtat = true;
+
+    Voiture(){}
+
+    Voiture( String marque, String modele ){
+        this.marque = marque;
+        this.modele = modele;
+    }
+
+    Voiture( String marque, String modele, int kmParcouru ){
+        this.marque = marque;
+        this.modele = modele;
+        this.kmParcouru = kmParcouru;
+    }
 
     // methode
     // - type de retour
@@ -23,4 +36,37 @@ public class Voiture {
         contre.enBonEtat = false;
     }
 
+    public int getKmParcouru(){
+        return kmParcouru;
+    }
+
+    public String getModele() {
+        return modele;
+    }
+
+    public void setModele( String modele ){
+        if( modele != null ) {
+            this.modele = modele;
+        }
+    }
+
+    public String getMarque() {
+        return marque;
+    }
+
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    public void setKmParcouru(int kmParcouru) {
+        this.kmParcouru = kmParcouru;
+    }
+
+    public boolean isEnBonEtat() {
+        return enBonEtat;
+    }
+
+    public void setEnBonEtat(boolean enBonEtat) {
+        this.enBonEtat = enBonEtat;
+    }
 }
