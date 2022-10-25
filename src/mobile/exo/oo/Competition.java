@@ -7,7 +7,7 @@ import java.util.Random;
 public class Competition {
 
     private List<Sportif> inscrits = new ArrayList<>();
-    private Sportif gagnant;
+     Sportif gagnant;
 
     void inscrire(Sportif aInscrire){
 

@@ -1,23 +1,32 @@
 package mobile.demo.oo;
 
-public class Voiture {
+import java.util.Objects;
+
+public class Voiture extends Vehicule {
 
     private String marque;
     private String modele;
-    private int kmParcouru;
     private boolean enBonEtat = true;
 
-    Voiture(){}
+    public Voiture(){
+        super( 0 );
+    }
 
-    Voiture( String marque, String modele ){
+    public Voiture( String marque, String modele ){
+//        super( 0 );
         this.marque = marque;
         this.modele = modele;
     }
 
-    Voiture( String marque, String modele, int kmParcouru ){
-        this.marque = marque;
-        this.modele = modele;
-        this.kmParcouru = kmParcouru;
+    public Voiture( String marque, String modele, int kmParcouru ){
+        this( marque, modele );
+        this.setKmParcouru( kmParcouru );
+    }
+
+    @Override
+    public void seDeplacer(int nbrKm) {
+        super.seDeplacer( nbrKm );
+        System.out.println("Je suis en voiture");
     }
 
     // methode
@@ -25,19 +34,42 @@ public class Voiture {
     // - nom de methode
     // - paramètres
     // - corps de la méthode
-    int rouler( int aParcourir ){
-        this.kmParcouru += aParcourir;
-        return kmParcouru;
+    public int rouler( int aParcourir ){
+        this.setKmParcouru( this.getKmParcouru() + aParcourir );
+        return this.getKmParcouru();
     }
 
     // Methode qui font se crasher 2 voiture => 2 voit en mauvais état
-    void faitUnAccident( Voiture contre ){
+    public void faitUnAccident( Voiture contre ){
         this.enBonEtat = false;
         contre.enBonEtat = false;
     }
 
-    public int getKmParcouru(){
-        return kmParcouru;
+    @Override
+    public String toString(){
+
+        return "Voiture (marque: \""+marque+"\", " +
+                "modele: '"+modele+"', " +
+                "km: "+ getKmParcouru() +", " +
+                "en bon état:" + ( enBonEtat ? "vrai" : "faux" ) + ')';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Voiture voiture = (Voiture) o;
+
+        if( getKmParcouru() != voiture.getKmParcouru() )
+            return false;
+
+        if (enBonEtat != voiture.enBonEtat)
+            return false;
+        if (!Objects.equals(marque, voiture.marque))
+            return false;
+
+        return Objects.equals(modele, voiture.modele);
     }
 
     public String getModele() {
@@ -56,10 +88,6 @@ public class Voiture {
 
     public void setMarque(String marque) {
         this.marque = marque;
-    }
-
-    public void setKmParcouru(int kmParcouru) {
-        this.kmParcouru = kmParcouru;
     }
 
     public boolean isEnBonEtat() {

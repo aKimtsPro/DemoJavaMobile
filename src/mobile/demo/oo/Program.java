@@ -1,5 +1,11 @@
 package mobile.demo.oo;
 
+import mobile.exo.oo.Competition;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Program {
 
     public static void main(String[] args) {
@@ -26,8 +32,16 @@ public class Program {
         System.out.println( v1.isEnBonEtat() ); // false
         System.out.println( v2.isEnBonEtat() ); // false
 
+        Vehicule vehicule = new Voiture();
+        Voiture voiture = null;
+        if( vehicule instanceof Voiture ) {
+            voiture = (Voiture) vehicule;
+            System.out.println("typecasting");
+        }
+        else
+            System.out.println("no typecasting");
 
-
+        System.out.println( voiture );
 
     }
 

@@ -24,8 +24,8 @@ public class DemoObj {
 
         Competition competition = new Competition();
 
-        Sportif s = new Sportif();
-
+        Sportif s = new Sportif("dupont","luc","10/10/1990", 185,85);
+        s.setPoid( 81 );
         competition.inscrire( s );
 
         competition.getInscrits().clear();

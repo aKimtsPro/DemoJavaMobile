@@ -7,9 +7,28 @@ public class Sportif {
     private String nom;
     private String prenom;
     private String dateNaiss;
-    private int taille; // cm
-    private int poid;
+    private Integer taille; // cm
+    private Integer poid;
     private int medailles;
+
+    public Sportif(){}
+
+    public Sportif(String nom, String prenom, String dateNaiss, int taille, int poid) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaiss = dateNaiss;
+        this.setTaille( taille );
+        this.setPoid( poid );
+    }
+
+    public Sportif(String nom, String prenom, String dateNaiss, int taille, int poid, int medailles) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaiss = dateNaiss;
+        this.setTaille( taille );
+        this.setPoid( poid );
+        this.setMedailles( medailles );
+    }
 
     public boolean participer(){
 
@@ -58,5 +77,8 @@ public class Sportif {
         return medailles;
     }
 
-
+    private void setMedailles(int medailles) {
+        if( medailles >= 0 )
+            this.medailles = medailles;
+    }
 }
