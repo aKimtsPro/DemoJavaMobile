@@ -2,17 +2,18 @@ package mobile.exo.oo;
 
 public class Personne {
     private String nom;
-    public String prenom;
-    protected String dateNaiss;
-    int taille; // package private
-    int poid;
+    private String prenom;
+    private String dateNaiss;
+    private Integer taille; // cm
+    private Integer poid;
 
     public Personne() {
     }
 
-    public Personne(String nom, String prenom) {
+    public Personne(String nom, String prenom, String dateNaiss) {
         this.nom = nom;
         this.prenom = prenom;
+        this.dateNaiss = dateNaiss;
     }
 
     public Personne(String nom, String prenom, String dateNaiss, int taille, int poid) {
@@ -52,6 +53,39 @@ public class Personne {
     public double calculIMC(){
         double tailleM = this.taille / 100.0;
         return this.poid / (tailleM * tailleM);
+    }
+
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getDateNaiss() {
+        return dateNaiss;
+    }
+
+    public int getTaille() {
+        return taille;
+    }
+
+    public void setTaille(int taille) {
+        if( taille >= 100 && taille <= 200 ) {
+            this.taille = taille;
+        }
+    }
+
+    public int getPoid() {
+        return poid;
+    }
+
+    public void setPoid(int poid) {
+        if( poid >= 50 && poid <= 150 ) {
+            this.poid = poid;
+        }
     }
 
 }
