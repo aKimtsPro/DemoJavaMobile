@@ -21,14 +21,23 @@ public class Sportif extends Personne {
 
     public boolean participer(){
 
-        Random randomGenerator = new Random();
-        int randomized = randomGenerator.nextInt(5);
-        if( randomized == 4 ){
-            medailles++;
+        Random rdmGen = new Random();
+        int rdm = rdmGen.nextInt(5);
+        if( rdm == 4 ){
+            gagnerMedaille();
             return true;
         }
         return false;
     }
+
+//    public boolean participer(){
+//
+//        if( genererVictoire() ){
+//            gagnerMedaille();
+//            return true;
+//        }
+//        return false;
+//    }
 
 
     public int getMedailles() {
@@ -39,4 +48,15 @@ public class Sportif extends Personne {
         if( medailles >= 0 )
             this.medailles = medailles;
     }
+
+    protected void gagnerMedaille(){
+        setMedailles( getMedailles() + 1 );
+    }
+
+
+//    protected boolean genererVictoire(){
+//        Random randomGenerator = new Random();
+//        int randomized = randomGenerator.nextInt(5);
+//        return randomized == 4;
+//    }
 }
