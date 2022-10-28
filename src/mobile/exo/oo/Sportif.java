@@ -2,7 +2,7 @@ package mobile.exo.oo;
 
 import java.util.Random;
 
-public class Sportif extends Personne {
+public abstract class Sportif extends Personne {
 
     private int medailles;
 
@@ -19,16 +19,7 @@ public class Sportif extends Personne {
         this.setMedailles( medailles );
     }
 
-    public boolean participer(){
-
-        Random rdmGen = new Random();
-        int rdm = rdmGen.nextInt(5);
-        if( rdm == 4 ){
-            gagnerMedaille();
-            return true;
-        }
-        return false;
-    }
+    public abstract boolean participer();
 
 //    public boolean participer(){
 //
@@ -59,4 +50,16 @@ public class Sportif extends Personne {
 //        int randomized = randomGenerator.nextInt(5);
 //        return randomized == 4;
 //    }
+
+
+    @Override
+    public String toString() {
+
+        return this.getClass().getSimpleName() +
+                "\n - nom: " + this.getNom() +
+                "\n - prenom: " + this.getPrenom() +
+                "\n - date de naissance: " + this.getDateNaiss() +
+                "\n - nbr de médailles: " + this.getMedailles();
+
+    }
 }

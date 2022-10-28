@@ -1,10 +1,8 @@
 package mobile.demo.oo;
 
-import mobile.exo.oo.Competition;
-
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Program {
 
@@ -42,6 +40,34 @@ public class Program {
             System.out.println("no typecasting");
 
         System.out.println( voiture );
+
+        v1.seDeplacer( 10 );
+        v2.seDeplacer( 20 );
+
+
+        // utilisation du singleton
+        Singleton pl = Singleton.getInstance();
+        pl.test();
+
+        System.out.println(">---> INTERFACE <---<");
+
+        Volant volant = new Oiseau("pic vert", 0.45);
+        Volant volant2 = new Avion(100, 70);
+
+
+        Oiseau oiseau = new Oiseau("pivert", 0.40);
+        Avion avion = new Avion(50, 60);
+//        volant2 = volant;
+
+        List<Volant> volants = new ArrayList<>();
+
+        volants.add( volant );
+        volants.add( volant2 );
+        volants.add( oiseau );
+        volants.add( avion );
+
+        volant2.voler();
+
 
     }
 

@@ -2,7 +2,12 @@ package mobile.exo.oo;
 
 import java.util.Random;
 
-public class Judoka extends Sportif {
+public final class Judoka extends Sportif {
+
+    public Judoka(String nom, String prenom, String dateNaiss, int taille, int poid) {
+        super(nom, prenom, dateNaiss, taille, poid);
+    }
+
     @Override
     public boolean participer() {
         Random rdmGen = new Random();
@@ -21,4 +26,10 @@ public class Judoka extends Sportif {
 //        return randomized < calculIMC();
 //    }
 
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\n - IMC: " + this.calculIMC();
+    }
 }

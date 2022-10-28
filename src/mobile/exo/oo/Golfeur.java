@@ -2,7 +2,7 @@ package mobile.exo.oo;
 
 import java.util.Random;
 
-public class Golfeur extends Sportif {
+public final class Golfeur extends Sportif {
 
     private int coefSwing;
 
@@ -10,6 +10,13 @@ public class Golfeur extends Sportif {
         super(nom, prenom, dateNaiss, taille, poid);
         this.setCoefSwing( coefSwing );
     }
+
+
+    // Signature:
+    // - classe d'appartenance
+    // - nom de methodes
+    // - params: ordre et le type
+
 
     @Override
     public boolean participer() {
@@ -29,5 +36,11 @@ public class Golfeur extends Sportif {
     public void setCoefSwing(int coefSwing) {
         if( coefSwing <= 10 && coefSwing >= 0)
             this.coefSwing = coefSwing;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\n - coefficient de swing: " + getCoefSwing();
     }
 }

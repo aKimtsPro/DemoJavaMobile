@@ -2,7 +2,7 @@ package mobile.exo.oo;
 
 import java.util.Random;
 
-public class Footballeur extends Sportif {
+public final class Footballeur extends Sportif {
 
     private int totalGoals;
     private final Random rdmGen = new Random();
@@ -41,6 +41,12 @@ public class Footballeur extends Sportif {
             totalGoals++;
 
         return randomized == 0;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\n - nombre de goals: " + getTotalGoals();
     }
 
     public int getTotalGoals() {
