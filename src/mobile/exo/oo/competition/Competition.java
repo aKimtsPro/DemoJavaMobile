@@ -1,4 +1,4 @@
-package mobile.exo.oo;
+package mobile.exo.oo.competition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,24 +6,21 @@ import java.util.Random;
 
 public class Competition {
 
-    private List<Sportif> inscrits = new ArrayList<>();
-     Sportif gagnant;
+    private final List<Sportif> inscrits = new ArrayList<>();
+    Sportif gagnant;
 
     void inscrire(Sportif aInscrire){
-
-        if( gagnant == null && !inscrits.contains(aInscrire) ) {
-            inscrits.add(aInscrire);
-        }
+        // TODO dans le cas ou le sportif est déjà inscrit, lancer une exception
+        // TODO dans le cas ou la competition a déjà été lancé, lancez une exception
     }
 
     boolean desinscrire(Sportif aDesinscrire){
-        if( gagnant == null )
-            return inscrits.remove(aDesinscrire);
-
-        return false;
+        // TODO dans le cas ou le sportif n'est pas inscrit, lancer une exception
+        // TODO dans le cas ou la competition a déjà été lancé, lancez une exception
     }
 
     void lancer(){
+        // TODO dans le cas ou la competition a déjà été lancée, lancez une exception
 
         if( gagnant == null && inscrits.size() >= 3 ){
             Random rdm = new Random();

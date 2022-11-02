@@ -1,4 +1,4 @@
-package mobile.exo.oo;
+package mobile.exo.oo.competition;
 
 public final class Boxeur extends Sportif {
 

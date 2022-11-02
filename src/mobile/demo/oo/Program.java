@@ -10,7 +10,7 @@ public class Program {
 
     public static void main(String[] args) {
 
-        Voiture v1 = new Voiture("opel", "mustang", Carburant.ESSENCE);
+        Voiture v1 = new Voiture("opel", "mustang", Carburant.ESSENCE, 100);
         int nbrKmParcouru = v1.getKmParcouru();
 
         System.out.println(v1.getMarque());
@@ -18,9 +18,16 @@ public class Program {
 
         // autre Voiture marque BipBoup modele Vroum
 
-        Voiture v2 = new Voiture("BipBoup","Vroum", Carburant.ELECTRIQUE,15000);
-        v1.rouler( 10 );
+        Voiture v2 = new Voiture("BipBoup","Vroum", Carburant.ELECTRIQUE,15000, 100);
 
+        try {
+            v1.rouler(10_000);
+        }
+        catch (Exception ex){
+            System.out.println( ex.getMessage() );
+        }
+
+        System.out.println("-> L'exception a été capturée, je peux continuer l'exec du code");
 
         System.out.println(v2.getMarque());
         System.out.println(v2.getModele());
@@ -33,7 +40,7 @@ public class Program {
         System.out.println( v1.isEnBonEtat() ); // false
         System.out.println( v2.isEnBonEtat() ); // false
 
-        Vehicule vehicule = new Voiture(Carburant.DIESEL);
+        Vehicule vehicule = new Voiture(Carburant.DIESEL, 100);
         Voiture voiture = null;
         if( vehicule instanceof Voiture ) {
             voiture = (Voiture) vehicule;

@@ -8,21 +8,25 @@ public class Voiture extends Vehicule {
     private String modele;
     private Carburant carburant;
     private boolean enBonEtat = true;
+    private int reservoir;
+    private int reservoirMax;
 
-    public Voiture(Carburant carburant){
+    public Voiture(Carburant carburant, int reservoirMax){
         super( 0 );
         this.carburant = carburant;
+        this.reservoirMax = reservoirMax;
     }
 
-    public Voiture( String marque, String modele, Carburant carburant ){
+    public Voiture( String marque, String modele, Carburant carburant, int reservoirMax ){
 //        super( 0 );
         this.marque = marque;
         this.modele = modele;
         this.carburant = carburant;
+        this.reservoirMax = reservoirMax;
     }
 
-    public Voiture( String marque, String modele, Carburant carburant, int kmParcouru ){
-        this( marque, modele, carburant );
+    public Voiture( String marque, String modele, Carburant carburant, int kmParcouru, int reservoirMax ){
+        this( marque, modele, carburant, reservoirMax );
         this.setKmParcouru( kmParcouru );
     }
 
@@ -45,8 +49,13 @@ public class Voiture extends Vehicule {
     // - nom de methode
     // - paramètres
     // - corps de la méthode
-    public int rouler( int aParcourir ){
+    public int rouler( int aParcourir ) throws Exception {
+
+        if( aParcourir > reservoir )
+            throw new Exception("Le reservoir n'est pas assez rempli");
+
         this.setKmParcouru( this.getKmParcouru() + aParcourir );
+        reservoir -= aParcourir;
         return this.getKmParcouru();
     }
 
@@ -107,5 +116,21 @@ public class Voiture extends Vehicule {
 
     public void setEnBonEtat(boolean enBonEtat) {
         this.enBonEtat = enBonEtat;
+    }
+
+    public int getReservoir() {
+        return reservoir;
+    }
+
+    public void setReservoir(int reservoir) {
+        this.reservoir = reservoir;
+    }
+
+    public int getReservoirMax() {
+        return reservoirMax;
+    }
+
+    public void setReservoirMax(int reservoirMax) {
+        this.reservoirMax = reservoirMax;
     }
 }

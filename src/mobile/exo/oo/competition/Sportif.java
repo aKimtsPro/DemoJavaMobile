@@ -1,6 +1,4 @@
-package mobile.exo.oo;
-
-import java.util.Random;
+package mobile.exo.oo.competition;
 
 public abstract class Sportif extends Personne {
 

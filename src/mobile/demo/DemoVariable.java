@@ -1,6 +1,6 @@
 package mobile.demo;
 
-import mobile.exo.oo.Personne;
+import mobile.exo.oo.competition.Personne;
 
 public class DemoVariable {
 

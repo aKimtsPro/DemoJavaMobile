@@ -1,4 +1,4 @@
-package mobile.exo.oo;
+package mobile.exo.oo.competition;
 
 import java.util.Random;
 
