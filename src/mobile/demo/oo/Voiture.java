@@ -6,21 +6,32 @@ public class Voiture extends Vehicule {
 
     private String marque;
     private String modele;
+    private Carburant carburant;
     private boolean enBonEtat = true;
 
-    public Voiture(){
+    public Voiture(Carburant carburant){
         super( 0 );
+        this.carburant = carburant;
     }
 
-    public Voiture( String marque, String modele ){
+    public Voiture( String marque, String modele, Carburant carburant ){
 //        super( 0 );
         this.marque = marque;
         this.modele = modele;
+        this.carburant = carburant;
     }
 
-    public Voiture( String marque, String modele, int kmParcouru ){
-        this( marque, modele );
+    public Voiture( String marque, String modele, Carburant carburant, int kmParcouru ){
+        this( marque, modele, carburant );
         this.setKmParcouru( kmParcouru );
+    }
+
+    public Carburant getCarburant() {
+        return carburant;
+    }
+
+    public void setCarburant(Carburant carburant) {
+        this.carburant = carburant;
     }
 
     @Override
