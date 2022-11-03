@@ -1,4 +1,8 @@
-package mobile.demo.oo;
+package mobile.demo.oo.exceptions;
+
+import mobile.demo.oo.Carburant;
+import mobile.demo.oo.Station;
+import mobile.demo.oo.Voiture;
 
 public class DemoException {
 
@@ -7,6 +11,8 @@ public class DemoException {
         Station s = new Station();
 
         Voiture v = new Voiture(Carburant.randomCarb(), 100);
+
+
 
         System.out.println(v.getCarburant());
         try {
