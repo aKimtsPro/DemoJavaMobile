@@ -49,10 +49,10 @@ public class Voiture extends Vehicule {
     // - nom de methode
     // - paramètres
     // - corps de la méthode
-    public int rouler( int aParcourir ) throws Exception {
+    public int rouler( int aParcourir ) {
 
         if( aParcourir > reservoir )
-            throw new Exception("Le reservoir n'est pas assez rempli");
+            throw new RuntimeException("Le reservoir n'est pas assez rempli");
 
         this.setKmParcouru( this.getKmParcouru() + aParcourir );
         reservoir -= aParcourir;

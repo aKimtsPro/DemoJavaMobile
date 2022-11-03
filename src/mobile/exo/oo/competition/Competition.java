@@ -3,53 +3,51 @@ package mobile.exo.oo.competition;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Predicate;
 
-public class Competition {
+public class Competition<TRUC extends Sportif> {
 
-    private final List<Sportif> inscrits = new ArrayList<>();
-    private Sportif gagnant;
+    private final List<TRUC> inscrits = new ArrayList<>();
+    private TRUC gagnant;
 
-    void inscrire(Sportif aInscrire) throws Exception {
+
+    public int getNbrOf(Predicate<Sportif> verification){
+        int nbr = 0;
+
+        for (TRUC inscrit : inscrits) {
+            if( verification.test( inscrit ) )
+                nbr++;
+        }
+
+        return nbr;
+    }
+
+    public void inscrire(TRUC aInscrire){
         // TODO dans le cas ou le sportif est déjà inscrit, lancer une exception
-        if( gagnant != null )
-            throw new Exception( "compet déjà lancée" );
         // TODO dans le cas ou la competition a déjà été lancé, lancez une exception
-        if( inscrits.contains( aInscrire ) )
-            throw new Exception( "déjà inscrit" );
-
-        inscrits.add( aInscrire );
     }
 
-    void desinscrire(Sportif aDesinscrire) throws Exception {
+    public void desinscrire(TRUC aDesinscrire){
         // TODO dans le cas ou le sportif n'est pas inscrit, lancer une exception
-        if( gagnant != null )
-            throw new Exception( "compet déjà lancée" );
         // TODO dans le cas ou la competition a déjà été lancé, lancez une exception
-        if( !inscrits.contains( aDesinscrire ) )
-            throw new Exception( "pas inscrit" );
-
-        inscrits.remove( aDesinscrire );
     }
 
-    void lancer() throws Exception {
+    public void lancer(){
         // TODO dans le cas ou la competition a déjà été lancée, lancez une exception
-        if( gagnant != null )
-            throw new Exception( "déjà lancée" );
 
-        if( inscrits.size() < 3 )
-            throw new Exception( "pas assez d'inscrits" );
-
-        Random rdm = new Random();
-        int indexGagnant = rdm.nextInt( inscrits.size() );
-        gagnant = inscrits.get( indexGagnant );
+        if( gagnant == null && inscrits.size() >= 3 ){
+            Random rdm = new Random();
+            int indexGagnant = rdm.nextInt( inscrits.size() );
+            gagnant = inscrits.get( indexGagnant );
+        }
 
     }
 
-    List<Sportif> getInscrits(){
+    public List<TRUC> getInscrits(){
         return new ArrayList<>(inscrits);
     }
 
-    public Sportif getGagnant() {
+    public TRUC getGagnant() {
         return gagnant;
     }
 }

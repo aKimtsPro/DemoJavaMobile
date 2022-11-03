@@ -1,25 +1,32 @@
 package mobile.magasin;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Produit aAcheter = new Biere("triple d'Anvers", 2.5, 8);
-        int age = 15;
+        Produit biere = new Biere("triple d'Anvers", 2.5, 8);
+        Tomate tomate = new Tomate("triple d'Anvers", 2.5, "cerise");
+        Produit packCig = new PackCig("triple d'Anvers", 2.5, false);
 
-        System.out.println("On simule le fait qu'un user de 20 ans achete un produit");
+        Map<Tomate, Integer> map = new HashMap<>();
+        map.put( tomate, 5 );
 
-        if( aAcheter instanceof Perimable ){
-            System.out.println("Verification peremption");
-            Perimable perimable = (Perimable)aAcheter;
-            System.out.println( "La date de peremption est : " + perimable.getDatePeremption() );
-        }
+        Magasin<Tomate> magasin= new Magasin<>( map );
 
-        if( aAcheter instanceof AgeLegal ){
-            System.out.println("Verification de l'age");
-            AgeLegal ageLegal = (AgeLegal)aAcheter;
-            System.out.println("L'utilisateur a " + age + " a le droit d'acheter ?" +  ageLegal.isAuthorized(age) );
-        }
+
+        //{ }
+
+        magasin.vendre( tomate );
+        magasin.vendre( tomate );
+        magasin.vendre( tomate );
+        magasin.vendre( tomate );
+        magasin.vendre( tomate );
+
 
 
     }
